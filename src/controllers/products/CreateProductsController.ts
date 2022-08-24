@@ -5,19 +5,21 @@ class CreateProductsController {
   async handle(req: Request, res: Response) {
     const { name, price, description, category_id } = req.body;
 
-    let banner = "";
-
     const createProductsService = new CreateProductsService();
 
-    const product = createProductsService.execute({
-      name,
-      price,
-      description,
-      banner,
-      category_id,
-    });
-
-    return res.json(product);
+    if (!req.file) {
+      throw new Error("Erro ao enviar a imagem");
+    } else {
+      const { originalname, filename } = req.file;
+      const product = await createProductsService.execute({
+        name,
+        price,
+        description,
+        banner: "",
+        category_id,
+      });
+      return res.json(product);
+    }
   }
 }
 
