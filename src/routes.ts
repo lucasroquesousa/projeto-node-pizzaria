@@ -1,12 +1,12 @@
 import { Router } from "express";
 import multer from "multer";
-import { CreateUserController } from "./controllers/user/CreateUserController";
-import { AuthUserController } from "./controllers/user/AuthUserController";
-import { DetailUserContoller } from "./controllers/user/DetailUserContoller";
+import { CreateUserController } from "./middlewares/controllers/user/CreateUserController";
+import { AuthUserController } from "./middlewares/controllers/user/AuthUserController";
+import { DetailUserContoller } from "./middlewares/controllers/user/DetailUserContoller";
 import { isAuthenticated } from "./middlewares/isAuthenticated";
-import { CreateCategoryController } from "./controllers/category/CreateCategoryController";
-import { ListCategoryController } from "./controllers/category/ListCategoryController";
-import { CreateProductsController } from "./controllers/products/CreateProductsController";
+import { CreateCategoryController } from "./middlewares/controllers/category/CreateCategoryController";
+import { ListCategoryController } from "./middlewares/controllers/category/ListCategoryController";
+import { CreateProductsController } from "./middlewares/controllers/products/CreateProductsController";
 
 import uploadConfig from "./config/multer";
 
