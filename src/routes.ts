@@ -15,6 +15,7 @@ import { RemoveOrderController } from "./middlewares/controllers/oreder/RemoveOr
 import { AddItemsController } from "./middlewares/controllers/oreder/AddItemsControllers";
 import { RemoveItemController } from "./middlewares/controllers/oreder/RemoveItemController";
 import { SendOrderController } from "./middlewares/controllers/oreder/SendOrderController";
+import { ListOrderController } from "./middlewares/controllers/oreder/ListOrderController";
 
 const router = Router();
 
@@ -66,5 +67,7 @@ router.delete(
 );
 
 router.put("/order/send", isAuthenticated, new SendOrderController().handle);
+
+router.get("/orders", isAuthenticated, new ListOrderController().handle);
 
 export { router };
